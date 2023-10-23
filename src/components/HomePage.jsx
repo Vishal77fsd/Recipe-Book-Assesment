@@ -17,7 +17,6 @@ const HomePage = () => {
         }&app_id=6488523b&app_key=3ab038238ef7212709d810ee61088424&random=true`
       )
       .then((response) => {
-        console.log(response.data.hits);
         setData(response.data.hits);
         setLoading(false);
       })

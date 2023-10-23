@@ -11,7 +11,6 @@ const FavouriteCard = ({ recipe }) => {
       )
       .then((response) => {
         setData(response.data);
-        console.table(response.data);
       })
       .catch((err) => console.log(err));
   }, [recipe]);

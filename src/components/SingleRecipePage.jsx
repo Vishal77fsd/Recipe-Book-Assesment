@@ -1,11 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 
-const SingleRecipePage = () => {
+const SingleRecipePage = ({ id }) => {
   const [data, setData] = useState();
-  const { id } = useParams();
-
   useEffect(() => {
     axios
       .get(
@@ -13,7 +10,6 @@ const SingleRecipePage = () => {
       )
       .then((response) => {
         setData(response?.data?.recipe);
-        console.log(data);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -30,7 +26,7 @@ const SingleRecipePage = () => {
       <div>
         <h1>Name : {data?.label}</h1>
         <h1>Calories : {data?.calories}</h1>
-        <div className="mt-2 flex gap-4">
+        <div className="mt-2 flex gap-4 flex-wrap">
           Cautions :{" "}
           {data?.cautions.map((caution, index) => (
             <span className="p-1 bg-blue-200 rounded-md max-w-max" key={index}>
